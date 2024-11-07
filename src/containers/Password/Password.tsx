@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addNumber, checkPassword, deleteNumber, resetPassword } from './PasswordSlice.ts';
+import { addNumber, checkPassword, deleteNumber } from './PasswordSlice.ts';
 import { RootState } from '../../app/store.ts';
 
 const Password = () => {
@@ -14,7 +14,12 @@ const Password = () => {
         <div
           className={`border border-3 p-3 ${status === 'granted' ? 'bg-success-subtle' : status === 'denied' ? 'bg-danger-subtle' : ''}`}>
           <h3>
-            {status === 'granted' ? 'Access Granted' : 'Access Denied'}
+            {enteredPassword.length > 0 && (
+              <div>
+                {status === 'granted' ? 'Access Granted' : status === 'denied' ? 'Access Denied' : ''}
+              </div>
+            )}
+
             {'*'.repeat(enteredPassword.length)}
           </h3>
         </div>

@@ -30,13 +30,10 @@ export const passwordSlice = createSlice({
       } else {
         state.status = 'denied';
       }
-    },
-    resetPassword: (state) => {
-      return  initialState;
     }
   },
 });
 
 export const passwordReducer = passwordSlice.reducer;
 
-export const {addNumber, deleteNumber, resetPassword, checkPassword} = passwordSlice.actions;
+export const {addNumber, deleteNumber, checkPassword} = passwordSlice.actions;
