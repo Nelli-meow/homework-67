@@ -11,8 +11,12 @@ const Password = () => {
   return (
     <div className="container my-5">
       <div className="border border-3 p-3">
-        <div className="">
-          <h3>{'*'.repeat(enteredPassword.length)}</h3>
+        <div
+          className={`border border-3 p-3 ${status === 'granted' ? 'bg-success-subtle' : status === 'denied' ? 'bg-danger-subtle' : ''}`}>
+          <h3>
+            {status === 'granted' ? 'Access Granted' : 'Access Denied'}
+            {'*'.repeat(enteredPassword.length)}
+          </h3>
         </div>
         <hr/>
         <div className="row justify-content-center">
@@ -32,7 +36,7 @@ const Password = () => {
           <button className="btn btn-outline-danger col-4" onClick={() => dispatch(deleteNumber())}>
             del
           </button>
-          <button className="btn btn-outline-success col-4" onClick={() => dispatch(checkPassword)}>
+          <button className="btn btn-outline-success col-4" onClick={() => dispatch(checkPassword())}>
             E
           </button>
         </div>
