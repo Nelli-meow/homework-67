@@ -19,6 +19,8 @@ export const passwordSlice = createSlice({
     addNumber: (state, action : PayloadAction<string>) => {
       if(state.enteredPassword.length < 4){
         state.enteredPassword += action.payload;
+      } else {
+        alert('Enter number should be at least 4 characters long');
       }
     },
     deleteNumber: (state) => {
